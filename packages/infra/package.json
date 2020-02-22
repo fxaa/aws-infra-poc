@@ -1,0 +1,19 @@
+{
+  "name": "@fxaa/infra",
+  "version": "0.0.1",
+  "description": "manage infrastructure",
+  "author": "fxaa <david.wallin.lewis@gmail.com>",
+  "homepage": "",
+  "license": "MIT",
+  "main": "lib/infra.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  }
+}

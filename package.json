@@ -1,0 +1,12 @@
+{
+  "name": "root",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fxaa/aws-infra-poc"
+  },
+  "devDependencies": {
+    "lerna": "3.20.2",
+    "prettier": "^1.19.1"
+  }
+}
