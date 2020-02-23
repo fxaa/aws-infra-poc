@@ -12,9 +12,8 @@ phases:
   build:
     commands:
       - lerna run build
+      - lerna run synth
 artifacts:
   files:
-    - packages/infra/**/*
-    - packages/lambda/**/*
-    - packages/ui/**/*
+    - packages/infra/cdk.out/*
   discard-paths: yes

@@ -3,9 +3,9 @@ import {App, Stack} from "@aws-cdk/core";
 
 const app = new App();
 
-const stack = new Stack(app, "Test", {
-    stackName: "TestStack",
-    description: "Test stack stuff",
+const stack = new Stack(app, "AppBuilder", {
+    stackName: "BuildStack",
+    description: "Meta stack for building stuff",
     env: {
         account: process.env.AWS_ACCOUNT_ID,
         region: process.env.AWS_REGION
