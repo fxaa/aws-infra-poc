@@ -14,7 +14,9 @@ phases:
       - lerna run build
 artifacts:
   files:
-    - packages
-  name: artifact-name
+    - infra/cdk.out/*
+    - lambda/dist/*
+    - ui/dist/*
+  name: main-artifacts
   discard-paths: yes
   base-directory: packages/infra
