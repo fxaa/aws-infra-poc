@@ -5,6 +5,7 @@ phases:
       nodejs: 12
     commands:
       - npm install
+      - npm i -g lerna aws-cdk
       - lerna bootstrap
     finally:
       - lerna link
