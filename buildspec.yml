@@ -17,5 +17,4 @@ artifacts:
     - infra/**/*
     - lambda/**/*
     - ui/**/*
-  name: main-artifacts
-  base-directory: packages
+  discard-paths: yes
