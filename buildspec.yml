@@ -1,19 +1,14 @@
 version: 0.2
-
-run-as: nobody
-
 phases:
   install:
     runtime-versions:
       nodejs: 12
-    run-as: nobody
     commands:
       - npm install
       - lerna bootstrap
     finally:
       - lerna link
   build:
-    run-as: nobody
     commands:
       - lerna run build
 artifacts:
