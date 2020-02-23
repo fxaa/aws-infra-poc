@@ -19,4 +19,4 @@ artifacts:
     - ui/dist/*
   name: main-artifacts
   discard-paths: yes
-  base-directory: packages/infra
+  base-directory: packages
