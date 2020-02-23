@@ -1,0 +1,22 @@
+version: 0.2
+
+run-as: nobody
+
+phases:
+  install:
+    run-as: nobody
+    commands:
+      - npm install
+      - lerna bootstrap
+    finally:
+      - lerna link
+  build:
+    run-as: nobody
+    commands:
+      - lerna run build
+artifacts:
+  files:
+    - packages
+  name: artifact-name
+  discard-paths: yes
+  base-directory: packages/infra

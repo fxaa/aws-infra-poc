@@ -1,10 +1,9 @@
 {
     "extends": "../../tsconfig.base.json",
     "compilerOptions": {
-        "composite": false,
         "declaration": true,
-        "outDir": "bin"
+        "outDir": "lib"
     },
     "include": ["**/*.ts"],
-    "exclude": ["bin"]
+    "exclude": ["lib"]
 }

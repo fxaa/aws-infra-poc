@@ -1,12 +1,23 @@
 {
-  "name": "root",
+  "name": "@fxaa/aws-infra-poc",
   "private": true,
+  "description": "example monorepo for managing a full stack app and its infrastructure",
   "repository": {
     "type": "git",
     "url": "https://github.com/fxaa/aws-infra-poc"
   },
   "devDependencies": {
+    "eslint": "~6.8.0",
+    "eslint-plugin-jest": "23.7.0",
+    "typescript": "3.8.2",
+    "@typescript-eslint/eslint-plugin": "2.20.0",
+    "@typescript-eslint/parser": "2.20.0",
     "lerna": "3.20.2",
-    "prettier": "^1.19.1"
+    "prettier": "~1.19.1"
+  },
+  "dependencies": {
+    "@fxaa/constructs": "file:packages/constructs",
+    "@fxaa/infra": "file:packages/constructs",
+    "@fxaa/lambda": "file:packages/lambda"
   }
 }

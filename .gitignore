@@ -1,2 +1,7 @@
 node_modules
 dist
+cdk.out
+build
+bin
+lib
+lerna-debug.log

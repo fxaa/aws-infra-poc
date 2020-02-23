@@ -1,19 +1,26 @@
 {
   "name": "@fxaa/infra",
   "version": "0.0.1",
+  "private": true,
   "description": "manage infrastructure",
   "author": "fxaa <david.wallin.lewis@gmail.com>",
   "homepage": "",
   "license": "MIT",
-  "main": "lib/infra.js",
-  "directories": {
-    "lib": "lib",
-    "test": "__tests__"
-  },
   "files": [
-    "lib"
+    "build",
+    "bin"
   ],
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "clean": "rm -rf ./node_modules",
+    "build": "tsc -b",
+    "synth": "npm run build && cdk synth",
+    "cdk": "cdk"
+  },
+  "dependencies": {
+    "@fxaa/constructs": "0.0.1",
+    "aws-cdk": "1.25.0",
+    "@aws-cdk/core": "1.25.0",
+    "@aws-cdk/region-info": "1.25.0",
+    "ts-node": "8.6.2"
   }
 }

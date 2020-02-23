@@ -1,0 +1,47 @@
+{
+  "name": "@fxaa/constructs",
+  "version": "0.0.1",
+  "private": true,
+  "description": "reusable constructs to apply to infrastructure",
+  "author": "fxaa <david.wallin.lewis@gmail.com>",
+  "homepage": "https://github.com/fxaa/aws-infra-poc#readme",
+  "license": "MIT",
+  "main": "lib/index",
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fxaa/aws-infra-poc.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fxaa/aws-infra-poc/issues"
+  },
+  "scripts": {
+    "clean": "rm -rf ./node_modules",
+    "build": "tsc -b"
+  },
+  "dependencies": {
+    "@aws-cdk/core": "1.25.0",
+    "@aws-cdk/aws-codepipeline": "1.25.0",
+    "@aws-cdk/aws-codepipeline-actions": "1.25.0",
+    "@aws-cdk/aws-codecommit": "1.25.0",
+    "@aws-cdk/aws-codebuild": "1.25.0",
+    "@aws-cdk/aws-lambda": "1.25.0",
+    "@aws-cdk/aws-s3": "1.25.0",
+    "@aws-cdk/aws-iam": "1.25.0",
+    "@aws-cdk/aws-cloudwatch": "1.25.0",
+    "@aws-cdk/aws-apigateway": "1.25.0",
+    "@aws-cdk/aws-ecs": "1.25.0",
+    "@aws-cdk/aws-ecr": "1.25.0",
+    "@aws-cdk/aws-dynamodb": "1.25.0",
+    "@aws-cdk/aws-route53": "1.25.0",
+    "@aws-cdk/aws-route53-patterns": "1.25.0",
+    "@aws-cdk/aws-cloudfront": "1.25.0",
+    "@aws-cdk/aws-sns": "1.25.0",
+    "@aws-cdk/aws-sqs": "1.25.0"
+  },
+  "devDependencies": {
+    "typescript": "3.8.2"
+  }
+}

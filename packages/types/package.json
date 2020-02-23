@@ -1,19 +1,16 @@
 {
-  "name": "types",
+  "name": "@fxaa/types",
   "version": "0.0.1",
-  "description": "> TODO: description",
+  "private": true,
+  "description": "contractual types to enforce across the application",
   "author": "fxaa <david.wallin.lewis@gmail.com>",
   "homepage": "",
   "license": "MIT",
-  "main": "lib/types.js",
-  "directories": {
-    "lib": "lib",
-    "test": "__tests__"
-  },
+  "main": "dist/index",
   "files": [
-    "lib"
+    "dist"
   ],
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "clean": "rm -rf ./node_modules"
   }
 }
