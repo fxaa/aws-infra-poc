@@ -4,6 +4,8 @@ run-as: nobody
 
 phases:
   install:
+    runtime-versions:
+      nodejs: 12
     run-as: nobody
     commands:
       - npm install

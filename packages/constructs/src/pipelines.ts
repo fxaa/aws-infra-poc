@@ -3,6 +3,7 @@ import * as codePipelineActions from "@aws-cdk/aws-codepipeline-actions";
 import * as codeBuild from "@aws-cdk/aws-codebuild";
 import * as sns from "@aws-cdk/aws-sns";
 import { Construct, SecretValue } from "@aws-cdk/core";
+import { BuildSpec } from "@aws-cdk/aws-codebuild";
 
 export enum Environment {
     Dev = "dev",
@@ -53,7 +54,7 @@ export class CIPipeline extends Construct {
             projectName: `${name}-Project`,
             description: `Build step for the ${name} pipeline`,
             environment: {
-                buildImage: codeBuild.LinuxBuildImage.AMAZON_LINUX_2,
+                buildImage: codeBuild.LinuxBuildImage.AMAZON_LINUX_2_2,
                 computeType: codeBuild.ComputeType.SMALL,
             },
         });
