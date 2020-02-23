@@ -14,7 +14,7 @@ phases:
       - lerna run build
 artifacts:
   files:
-    - infra/**/*
-    - lambda/**/*
-    - ui/**/*
+    - packages/infra/**/*
+    - packages/lambda/**/*
+    - packages/ui/**/*
   discard-paths: yes
