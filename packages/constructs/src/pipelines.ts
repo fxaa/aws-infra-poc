@@ -49,7 +49,7 @@ export class CIPipeline extends Construct {
             actionName: "Checkout",
             repo: props.sourceOptions.repoName,
             owner: props.sourceOptions.owner,
-            oauthToken: oauth
+            oauthToken: oauth,
         });
 
         const buildProject = new codeBuild.PipelineProject(this, `${name}-Build`, {
@@ -58,7 +58,7 @@ export class CIPipeline extends Construct {
             environment: {
                 buildImage: codeBuild.LinuxBuildImage.AMAZON_LINUX_2_2,
                 computeType: codeBuild.ComputeType.SMALL,
-            }
+            },
         });
 
         const buildAction = new codePipelineActions.CodeBuildAction({
