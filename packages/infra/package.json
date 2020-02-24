@@ -11,7 +11,7 @@
     "bin"
   ],
   "scripts": {
-    "clean": "rm -rf ./node_modules",
+    "clean": "rm -rf ./node_modules && rm -rf ./cdk.out",
     "build": "tsc -b",
     "synth": "npm run build && cdk synth",
     "cdk": "cdk"

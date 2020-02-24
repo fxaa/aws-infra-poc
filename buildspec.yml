@@ -15,6 +15,6 @@ phases:
       - lerna run synth
 artifacts:
   files:
-    - TestStack.template.json
+    - BuildStack.template.json
   discard-paths: yes
   base-directory: packages/infra/cdk.out
