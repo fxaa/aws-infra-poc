@@ -2,6 +2,7 @@ import * as codePipeline from "@aws-cdk/aws-codepipeline";
 import * as codePipelineActions from "@aws-cdk/aws-codepipeline-actions";
 import * as codeBuild from "@aws-cdk/aws-codebuild";
 import * as sns from "@aws-cdk/aws-sns";
+import * as s3 from "@aws-cdk/aws-s3";
 import { Construct, SecretValue } from "@aws-cdk/core";
 import { BuildSpec } from "@aws-cdk/aws-codebuild";
 
@@ -40,6 +41,7 @@ export class CIPipeline extends Construct {
 
         const repoSourceArtifact = new codePipeline.Artifact(`${name}-RepoArtifact`);
         const repoBuildArtifact = new codePipeline.Artifact(`${name}-BuildArtifact`);
+        const repoBuildPath = new codePipeline.ArtifactPath(repoBuildArtifact, `./${props.stackName}.template.json`);
 
         const oauth = SecretValue.secretsManager("GithubPersonalAccessToken");
         const sourceAction = new codePipelineActions.GitHubSourceAction({
@@ -56,7 +58,7 @@ export class CIPipeline extends Construct {
             environment: {
                 buildImage: codeBuild.LinuxBuildImage.AMAZON_LINUX_2_2,
                 computeType: codeBuild.ComputeType.SMALL,
-            },
+            }
         });
 
         const buildAction = new codePipelineActions.CodeBuildAction({
@@ -72,7 +74,7 @@ export class CIPipeline extends Construct {
                 runOrder: 1,
                 stackName: `${props.stackName}`,
                 changeSetName: `${props.stackName}-ChangeSet`,
-                templatePath: new codePipeline.ArtifactPath(repoBuildArtifact, `${props.stackName}.template.json`),
+                templatePath: repoBuildPath,
                 adminPermissions: true
             }),
             new codePipelineActions.CloudFormationExecuteChangeSetAction({
