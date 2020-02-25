@@ -76,7 +76,11 @@ export class CIPipeline extends Construct {
                 stackName: `${props.stackName}`,
                 changeSetName: `${props.stackName}-ChangeSet`,
                 templatePath: repoBuildPath,
-                adminPermissions: true
+                adminPermissions: true,
+                parameterOverrides: {
+                    "StackCodeBucketName": repoBuildArtifact.bucketName,
+                    "StackCodeObjectKey": repoBuildArtifact.objectKey
+                }
             }),
             new codePipelineActions.CloudFormationExecuteChangeSetAction({
                 actionName: `${name}-ExecuteChanges`,

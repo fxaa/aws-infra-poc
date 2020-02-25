@@ -1,5 +1,5 @@
 import { CIPipeline, BaseLambdaApi } from "@fxaa/constructs";
-import {App, Stack} from "@aws-cdk/core";
+import {App, Stack, CfnOutput, CfnParameter} from "@aws-cdk/core";
 
 const app = new App();
 
@@ -12,7 +12,8 @@ const stack = new Stack(app, "AppBuilder", {
     },
     tags: {
         "project": "aws-infra-poc"
-    }
+    },
+
 });
 
 const pipeline = new CIPipeline(stack, "TestPipeline", {

@@ -18,10 +18,10 @@ export class BaseLambdaApi extends Construct {
             props.artifactLocation.bucketName
         );
         const code = lambda.Code.fromCfnParameters({
-            bucketNameParam: new CfnParameter(this, props.artifactLocation.bucketName),
-            objectKeyParam: new CfnParameter(this, props.artifactLocation.objectKey)
+            bucketNameParam: new CfnParameter(this, "StackCodeBucketName"),
+            objectKeyParam: new CfnParameter(this, "StackCodeObjectKey")
         })
-        this.lambdaFunction = new lambda.Function(this, props.lambdaName, {
+        this.lambdaFunction = new lambda.Function(this, "BaseLambdaName", {
             code,
             runtime: lambda.Runtime.NODEJS_12_X,
             handler: props.handler
