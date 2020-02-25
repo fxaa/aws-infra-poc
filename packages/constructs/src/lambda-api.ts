@@ -17,9 +17,14 @@ export class BaseLambdaApi extends Construct {
         const artifact = s3.Bucket.fromBucketName(parent, "LambdaCodeBucket", 
             props.artifactLocation.bucketName
         );
+        
+        const bucketNameParam = new CfnParameter(this, "StackCodeBucketName");
+        const objectKeyParam = new CfnParameter(this, "StackCodeObjectKey");
+        bucketNameParam.overrideLogicalId("StackCodeBucketName");
+        objectKeyParam.overrideLogicalId("StackCodeObjectKey");
         const code = lambda.Code.fromCfnParameters({
-            bucketNameParam: new CfnParameter(this, "StackCodeBucketName"),
-            objectKeyParam: new CfnParameter(this, "StackCodeObjectKey")
+            bucketNameParam,
+            objectKeyParam
         })
         this.lambdaFunction = new lambda.Function(this, "BaseLambdaName", {
             code,
