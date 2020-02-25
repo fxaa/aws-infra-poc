@@ -1,0 +1,1 @@
+export async function handler(event: object, context: object) { return "hey" }

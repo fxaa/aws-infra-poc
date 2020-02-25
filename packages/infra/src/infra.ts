@@ -1,4 +1,4 @@
-import { CIPipeline } from "@fxaa/constructs";
+import { CIPipeline, BaseLambdaApi } from "@fxaa/constructs";
 import {App, Stack} from "@aws-cdk/core";
 
 const app = new App();
@@ -24,5 +24,11 @@ const pipeline = new CIPipeline(stack, "TestPipeline", {
         token: process.env.SOURCE_TOKEN ?? "",
     }
 });
+
+const lambdaFunc = new BaseLambdaApi(stack, "RandomLambda", {
+    artifactLocation: pipeline.buildArtifactLocation,
+    handler: "handler.handler",
+    lambdaName: "RandomHandler"
+})
 
 app.synth();

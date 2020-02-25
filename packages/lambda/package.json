@@ -7,9 +7,10 @@
   "homepage": "",
   "license": "MIT",
   "files": [
-    "lib"
+    "dist"
   ],
   "scripts": {
-    "clean": "rm -rf ./node_modules"
+    "clean": "rm -rf ./node_modules",
+    "build": "tsc -b"
   }
 }

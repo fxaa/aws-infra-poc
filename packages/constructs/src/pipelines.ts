@@ -2,6 +2,7 @@ import * as codePipeline from "@aws-cdk/aws-codepipeline";
 import * as codePipelineActions from "@aws-cdk/aws-codepipeline-actions";
 import * as codeBuild from "@aws-cdk/aws-codebuild";
 import * as sns from "@aws-cdk/aws-sns";
+import * as s3 from "@aws-cdk/aws-s3";
 import { Construct, SecretValue } from "@aws-cdk/core";
 
 export enum Environment {
@@ -24,6 +25,7 @@ export interface CIPipelineProps {
 
 export class CIPipeline extends Construct {
     readonly pipeline: codePipeline.Pipeline;
+    readonly buildArtifactLocation: s3.Location;
     readonly successTopic: sns.Topic;
     readonly failureTopic: sns.Topic;
 
@@ -39,6 +41,7 @@ export class CIPipeline extends Construct {
 
         const repoSourceArtifact = new codePipeline.Artifact(`${name}-RepoArtifact`);
         const repoBuildArtifact = new codePipeline.Artifact(`${name}-BuildArtifact`);
+        this.buildArtifactLocation = repoBuildArtifact.s3Location;
         const repoBuildPath = new codePipeline.ArtifactPath(repoBuildArtifact, `${props.stackName}.template.json`);
 
         const oauth = SecretValue.secretsManager("GithubPersonalAccessToken");
