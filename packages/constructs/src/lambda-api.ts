@@ -1,4 +1,4 @@
-import { Construct } from "@aws-cdk/core";
+import { Construct, CfnParameter } from "@aws-cdk/core";
 import * as lambda from "@aws-cdk/aws-lambda";
 import * as s3 from "@aws-cdk/aws-s3";
 
@@ -17,8 +17,12 @@ export class BaseLambdaApi extends Construct {
         const artifact = s3.Bucket.fromBucketName(parent, "LambdaCodeBucket", 
             props.artifactLocation.bucketName
         );
+        const code = lambda.Code.fromCfnParameters({
+            bucketNameParam: new CfnParameter(this, props.artifactLocation.bucketName),
+            objectKeyParam: new CfnParameter(this, props.artifactLocation.objectKey)
+        })
         this.lambdaFunction = new lambda.Function(this, props.lambdaName, {
-            code: new lambda.S3Code(artifact, props.artifactLocation.objectKey),
+            code,
             runtime: lambda.Runtime.NODEJS_12_X,
             handler: props.handler
         });
